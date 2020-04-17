@@ -3,8 +3,8 @@ import {connect} from 'react-redux'
 import {startLoginUser} from '../../actions/userAction'
 
 class Login extends React.Component{
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state={
             email:'',
             password:''
