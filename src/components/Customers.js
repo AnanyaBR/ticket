@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import AddCustomer from './AddCustomer'
-import {BrowserRouter, Link, Route, Switch} from 'react-router-dom'
+import {BrowserRouter, Link, Route, Switch, Redirect} from 'react-router-dom'
 import { startGetCustomer } from '../actions/customerAction'
 import {startGetCustomInfo} from '../actions/customerAction'
 import {startDeleteCustomer} from '../actions/customerAction'
@@ -34,6 +34,8 @@ class Customers extends React.Component{
        //console.log(_id)
        this.props.dispatch(startDeleteCustomer(_id))
    }
+
+   
     
     render(){
         return(
@@ -53,8 +55,8 @@ class Customers extends React.Component{
 
             </thead>
             <tbody>{
-                this.props.customers.map(customer=>{
-                    return <tr key={customer._id}>
+                this.props.customers.map((customer,i)=>{
+                    return <tr key={i}>
                     <td>{customer._id}</td>
                 <td>{customer.name}</td>
                 <td>{customer.email}</td>
@@ -76,10 +78,13 @@ class Customers extends React.Component{
         </table>
         <Link to='/customers/new'>Add Customer</Link>
         <Switch>
+        
+  
         <Route path='/customers/new' component={AddCustomer} exact={true}/>
+       
         </Switch>
          
-        
+          
         </div>
         </BrowserRouter>
         )

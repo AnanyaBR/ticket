@@ -7,8 +7,8 @@ import Departments from './components/Departments'
 import Employees from './components/Employees'
 import Tickets from './components/Tickets'
 import Logout from './components/Logout'
-//import AddEmployees from './components/AddEmployees'
-//import AddCustomer from './components/AddCustomer'
+import AddEmployees from './components/AddEmployees'
+import AddCustomer from './components/AddCustomer'
 import {BrowserRouter, Route, Link, Switch} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {startUserLogout} from './actions/userAction'
@@ -49,10 +49,15 @@ function App(props){
             <Route path="/" component={Home} exact={true} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
-            <Route path="/customers" component={Customers} />
+            <Route path="/customers" component={Customers} exact={true}/>
+           
+  
+            
+        <Route path='/customers/new' component={AddCustomer} exact={true}/>
+        
             <Route path="/departments" component={Departments} />
             <Route path="/employees" component={Employees} />
-            
+            <Route path ="/employees/new" component ={AddEmployees} exact={true}/>
             <Route path="/tickets" component={Tickets} />
             <Route path="/logout" component={Logout}   />    
             
