@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {Link, Route, BrowserRouter} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import AddEmployees from './AddEmployees'
 import {startGetAllEmployee} from '../actions/employeeAction'
 import {startGetEmpInfo} from '../actions/employeeAction'
@@ -29,7 +29,7 @@ this.props.dispatch(startDeleteEmp(_id))
 
     render(){
         return(
-            <BrowserRouter>
+            
             <div>
 <h1>Employees-{this.props.employees.length}</h1>
 <table border= "1px solid black">
@@ -67,10 +67,10 @@ this.props.dispatch(startDeleteEmp(_id))
     </tbody>
 </table>
 <Link to="/employees/new">Add Employees</Link>
-<Route path ="/employees/new" component ={AddEmployees} exact={true}/>
+
 
             </div>
-            </BrowserRouter>
+            
             
         )
     }

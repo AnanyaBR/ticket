@@ -1,3 +1,5 @@
+
+
 const customerReducerInitialValue=[]
 
 const customerReducer=(state=customerReducerInitialValue, action)=>{
@@ -11,7 +13,8 @@ const customerReducer=(state=customerReducerInitialValue, action)=>{
         }
 
         case 'CUSTOMER_INFO' : {
-            alert('Name - '+action.payload.name+'\nID - '+ action.payload._id +'\nEmail - '+action.payload.email )
+            
+            //alert('Name - '+action.payload.name+'\nID - '+ action.payload._id +'\nEmail - '+action.payload.email )
             return state
     
         }

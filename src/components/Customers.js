@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import AddCustomer from './AddCustomer'
-import {BrowserRouter, Link, Route, Switch, Redirect} from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import { startGetCustomer } from '../actions/customerAction'
 import {startGetCustomInfo} from '../actions/customerAction'
 import {startDeleteCustomer} from '../actions/customerAction'
@@ -26,11 +26,18 @@ class Customers extends React.Component{
     }
 
     handleShow=(customer)=>{
-        this.props.dispatch(startGetCustomInfo(customer))
+        
     //console.log(customer._id)
+   // <Redirect to="/customers/show" />
+   const redirect = () =>{
+    return this.props.history.push('/customers/'+customer._id)
+    
+}
+this.props.dispatch(startGetCustomInfo(customer, redirect))
    }
 
    handleRemove=(_id)=>{
+
        //console.log(_id)
        this.props.dispatch(startDeleteCustomer(_id))
    }
@@ -39,7 +46,7 @@ class Customers extends React.Component{
     
     render(){
         return(
-            <BrowserRouter>
+            
             <div>
         <h1>Customers - {this.props.customers.length}</h1>
         <table border= '1px solid black'>
@@ -77,16 +84,8 @@ class Customers extends React.Component{
 
         </table>
         <Link to='/customers/new'>Add Customer</Link>
-        <Switch>
-        
-  
-        <Route path='/customers/new' component={AddCustomer} exact={true}/>
-       
-        </Switch>
-         
-          
         </div>
-        </BrowserRouter>
+        
         )
     }
 }

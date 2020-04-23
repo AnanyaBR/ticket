@@ -46,7 +46,7 @@ export const customerInfo=(msg)=>{
     return {type:'CUSTOMER_INFO', payload: msg}
 }
 
-export const startGetCustomInfo=(customer)=>{
+export const startGetCustomInfo=(customer, redirect)=>{
     return(dispatch)=>{
         axios.get(`/customers/${customer._id}`, {
             headers:{
@@ -56,6 +56,7 @@ export const startGetCustomInfo=(customer)=>{
         .then((response)=>{
             const msg = response.data // {createdAt: "2020-04-16T19:59:31.316Z", _id: "5e98bdd61666b7001664cd2a", name: "customer1", email: "cus@gmail.com", mobile: "9876543210", …}
             dispatch(customerInfo(msg))
+            redirect()
             // console.log(response.data)
             // console.log(msg.name)
         })

@@ -49,16 +49,13 @@ function App(props){
             <Route path="/" component={Home} exact={true} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
-            <Route path="/customers" component={Customers} exact={true}/>
-           
-  
+            <Route path='/customers/new' component={AddCustomer} exact={true}/>
+             <Route path="/customers" component={Customers} />
             
-        <Route path='/customers/new' component={AddCustomer} exact={true}/>
-        
-            <Route path="/departments" component={Departments} />
+             <Route path="/departments" component={Departments} />
+             <Route path ="/employees/new" component ={AddEmployees} exact={true}/>
             <Route path="/employees" component={Employees} />
-            <Route path ="/employees/new" component ={AddEmployees} exact={true}/>
-            <Route path="/tickets" component={Tickets} />
+             <Route path="/tickets" component={Tickets} />
             <Route path="/logout" component={Logout}   />    
             
             </Switch>   
